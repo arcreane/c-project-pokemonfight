@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Boss : Characters {
+public class Boss : Character {
 
-    public Boss() {
+    public string name;
+
+    public Boss(string name) : base(name)
+    {
     }
 
     public void beginTalkFight() {

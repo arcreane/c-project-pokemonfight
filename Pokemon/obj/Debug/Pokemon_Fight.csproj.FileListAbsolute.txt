@@ -1,0 +1,5 @@
+/Users/e211/Projects/Pokemon/Pokemon/obj/Debug/Pokemon_Fight.csprojAssemblyReference.cache
+/Users/e211/Projects/Pokemon/Pokemon/bin/Debug/Pokemon.exe
+/Users/e211/Projects/Pokemon/Pokemon/bin/Debug/Pokemon.pdb
+/Users/e211/Projects/Pokemon/Pokemon/obj/Debug/Pokemon.exe
+/Users/e211/Projects/Pokemon/Pokemon/obj/Debug/Pokemon.pdb

@@ -6,10 +6,13 @@ using System.Text;
 
 public class Game {
 
-    public Game() {
+    public string Difficulty;
+
+    public Game(string difficulty) {
+        Difficulty = difficulty;
     }
 
-    public void Difficulty;
+    
 
 
 

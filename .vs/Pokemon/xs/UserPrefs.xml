@@ -1,23 +1,47 @@
 ﻿<Properties StartupConfiguration="{5A581D97-5E0F-4937-9322-8C0AD21F60D4}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Pokemon/Game.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pokemon/Characters/Pokemons/Dracaufeu.cs">
     <Files>
-      <File FileName="Pokemon/Program.cs" Line="13" Column="1" />
-      <File FileName="Pokemon/Game.cs" Line="12" Column="16" />
+      <File FileName="Pokemon/Program.cs" Line="51" Column="1" />
+      <File FileName="Pokemon/Game.cs" Line="12" Column="33" />
+      <File FileName="Pokemon/Combat.cs" Line="1" Column="1" />
+      <File FileName="Pokemon/Characters/Starter.cs" Line="8" Column="1" />
+      <File FileName="Pokemon/Characters/Characters.cs" Line="12" Column="5" />
+      <File FileName="Pokemon/Characters/Boss.cs" Line="23" Column="2" />
+      <File FileName="Pokemon/Characters/Pokemons/Pokemon.cs" Line="21" Column="1" />
+      <File FileName="Pokemon/Properties/AssemblyInfo.cs" />
+      <File FileName="Pokemon/Characters/Pokemons/Bulbizzare.cs" Line="1" Column="1" />
+      <File FileName="Pokemon/Characters/Pokemons/Carapuce.cs" Line="1" Column="1" />
+      <File FileName="Pokemon/Characters/Pokemons/Salamèche.cs" Line="1" Column="1" />
+      <File FileName="Pokemon/Characters/Pokemons/Arcanin.cs" Line="1" Column="1" />
+      <File FileName="Pokemon/Characters/Pokemons/Empiflor.cs" Line="1" Column="1" />
+      <File FileName="Pokemon/Characters/Pokemons/Leviator.cs" Line="1" Column="1" />
+      <File FileName="Pokemon/Characters/Pokemons/Tomy.cs" Line="1" Column="1" />
+      <File FileName="Pokemon/Characters/Pokemons/Rattata.cs" Line="1" Column="1" />
+      <File FileName="Pokemon/Characters/Pokemons/Carabaffe.cs" Line="1" Column="1" />
+      <File FileName="Pokemon/Characters/Pokemons/Tortank.cs" Line="1" Column="1" />
+      <File FileName="Pokemon/Characters/Pokemons/Herbizarre.cs" Line="1" Column="1" />
+      <File FileName="Pokemon/Characters/Pokemons/Florizarre.cs" Line="1" Column="1" />
+      <File FileName="Pokemon/Characters/Pokemons/Reptincel.cs" Line="1" Column="1" />
+      <File FileName="Pokemon/Characters/Pokemons/Dracaufeu.cs" Line="4" Column="27" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Pokemon" expanded="True">
-            <Node name="Pokemon" expanded="True">
+            <Node name="Pokemon_Fight" expanded="True">
+              <Node name="Characters" expanded="True">
+                <Node name="Pokemons" expanded="True">
+                  <Node name="Dracaufeu.cs" selected="True" />
+                </Node>
+              </Node>
               <Node name="Properties" expanded="True" />
-              <Node name="Game.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.Pokemon FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.Pokemon__Fight PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

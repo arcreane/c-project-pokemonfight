@@ -9,15 +9,15 @@ public class Pokemon {
     public Pokemon() {
     }
 
-    public void HP;
+    public int HP;
 
-    public void Attack;
+    public int Attack;
 
-    public void Defense;
+    public int Defense;
 
-    public void Type;
+    public string Type;
 
-    public void Name;
+    public string Name;
 
 
 

@@ -35,12 +35,28 @@
     <Compile Include="Game.cs" />
     <Compile Include="Combat.cs" />
     <Compile Include="Characters\Boss.cs" />
-    <Compile Include="Characters\Characters.cs" />
-    <Compile Include="Characters\Pokemon.cs" />
-    <Compile Include="Characters\Starter.cs" />
+    <Compile Include="Characters\Character.cs" />
+    <Compile Include="Characters\Pokemons\Pokemon.cs" />
+    <Compile Include="Characters\Pokemons\Arcanin.cs" />
+    <Compile Include="Characters\Pokemons\Empiflor.cs" />
+    <Compile Include="Characters\Pokemons\Leviator.cs" />
+    <Compile Include="Characters\Pokemons\Tomy.cs" />
+    <Compile Include="Characters\Pokemons\Rattata.cs" />
+    <Compile Include="Characters\Pokemons\Starters\Bulbizarre.cs" />
+    <Compile Include="Characters\Pokemons\Starters\Carabaffe.cs" />
+    <Compile Include="Characters\Pokemons\Starters\Carapuce.cs" />
+    <Compile Include="Characters\Pokemons\Starters\Dracaufeu.cs" />
+    <Compile Include="Characters\Pokemons\Starters\Florizarre.cs" />
+    <Compile Include="Characters\Pokemons\Starters\Herbizarre.cs" />
+    <Compile Include="Characters\Pokemons\Starters\Reptincel.cs" />
+    <Compile Include="Characters\Pokemons\Starters\Salamèche.cs" />
+    <Compile Include="Characters\Pokemons\Starters\Tortank.cs" />
+    <Compile Include="Characters\Pokemons\Starters\Starter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Characters\" />
+    <Folder Include="Characters\Pokemons\" />
+    <Folder Include="Characters\Pokemons\Starters\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
