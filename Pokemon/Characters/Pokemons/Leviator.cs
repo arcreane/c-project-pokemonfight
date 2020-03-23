@@ -1,10 +1,48 @@
 ﻿using System;
-namespace Pokemon.Characters.Pokemons
+namespace PokemonGame
 {
     public class Leviator : Pokemon
     {
-        public Leviator()
+        protected int nb_Fight;
+
+        public Leviator(int nb_Trainer)
         {
+            Attack = 60;
+            Defense = 60;
+            Speed = 60;
+            HP = 60;
+            nb_Fight = nb_Trainer;
+            pkmn_attacks = getAttacks();
+            Name = "Leviator";
+            Type = "Eau";
+        }
+
+        public override Attack[] getAttacks()
+        {
+            Attack[] a_Attacks = new Attack[2];
+            Attack Damoclès = new Attack("Damoclès", 30, "Normal");
+            Attack Hydro_canon = new Attack("Hydro-canon", 30, "Eau");
+
+            switch (nb_Fight)
+            {
+                case 3:
+                    Damoclès = new Attack("Damoclès", 50, "Normal");
+                    Hydro_canon = new Attack("Hydro-canon", 50, "Eau");
+                    break;
+
+                case 4:
+                    Damoclès = new Attack("Damoclès", 70, "Normal");
+                    Hydro_canon = new Attack("Hydro-canon", 70, "Eau");
+                    break;
+
+                default:
+                    break;
+            }
+
+            a_Attacks[0] = Damoclès;
+            a_Attacks[1] = Hydro_canon;
+
+            return a_Attacks;
         }
     }
 }

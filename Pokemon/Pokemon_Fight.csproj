@@ -43,15 +43,10 @@
     <Compile Include="Characters\Pokemons\Tomy.cs" />
     <Compile Include="Characters\Pokemons\Rattata.cs" />
     <Compile Include="Characters\Pokemons\Starters\Bulbizarre.cs" />
-    <Compile Include="Characters\Pokemons\Starters\Carabaffe.cs" />
     <Compile Include="Characters\Pokemons\Starters\Carapuce.cs" />
-    <Compile Include="Characters\Pokemons\Starters\Dracaufeu.cs" />
-    <Compile Include="Characters\Pokemons\Starters\Florizarre.cs" />
-    <Compile Include="Characters\Pokemons\Starters\Herbizarre.cs" />
-    <Compile Include="Characters\Pokemons\Starters\Reptincel.cs" />
     <Compile Include="Characters\Pokemons\Starters\Salamèche.cs" />
-    <Compile Include="Characters\Pokemons\Starters\Tortank.cs" />
     <Compile Include="Characters\Pokemons\Starters\Starter.cs" />
+    <Compile Include="Characters\Pokemons\Attack.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Characters\" />

@@ -13,7 +13,7 @@ public class Character {
 
     public string Name;
 
-    public Pokemon Pokemon;
+    //public Pokemon Pokemon;
 
 
 

@@ -3,15 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+namespace PokemonGame
+{
+    public abstract class Starter : Pokemon {
 
-public class Starter : Pokemon {
+        public Starter() {
+        }
 
-    public Starter() {
+
+        public abstract void evolve();
+
     }
-
-
-    public void evolve() {
-        // TODO implement here
-    }
-
 }
