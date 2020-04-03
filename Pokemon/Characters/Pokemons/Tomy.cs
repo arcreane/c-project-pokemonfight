@@ -3,6 +3,8 @@ namespace PokemonGame
 {
     public class Tomy : Pokemon
     {
+        
+
         public Tomy()
         {
             Attack = 130;
@@ -16,7 +18,13 @@ namespace PokemonGame
 
         public override Attack[] getAttacks()
         {
-            throw new NotImplementedException();
+            Attack[] a_Attacks = new Attack[2];
+            Attack Lance_monop = new Attack("Lance-Monop", 100, "Ultime");
+            Attack Tricherie = new Attack("Tricherie", 100, "Ultime");
+            a_Attacks[0] = Lance_monop;
+            a_Attacks[1] = Tricherie;
+
+            return a_Attacks;
         }
     }
 }

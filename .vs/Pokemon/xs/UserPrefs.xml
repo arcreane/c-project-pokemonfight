@@ -1,15 +1,15 @@
 ﻿<Properties StartupConfiguration="{5A581D97-5E0F-4937-9322-8C0AD21F60D4}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Pokemon/Game.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pokemon/Characters/Pokemons/Tomy.cs">
     <Files>
-      <File FileName="Pokemon/Program.cs" Line="7" Column="1" />
-      <File FileName="Pokemon/Game.cs" Line="26" Column="14" />
+      <File FileName="Pokemon/Program.cs" Line="43" Column="19" />
+      <File FileName="Pokemon/Game.cs" />
       <File FileName="Pokemon/Combat.cs" />
       <File FileName="Pokemon/Characters/Boss.cs" />
       <File FileName="Pokemon/Characters/Pokemons/Pokemon.cs" />
       <File FileName="Pokemon/Characters/Pokemons/Arcanin.cs" />
       <File FileName="Pokemon/Characters/Pokemons/Empiflor.cs" />
       <File FileName="Pokemon/Characters/Pokemons/Leviator.cs" />
-      <File FileName="Pokemon/Characters/Pokemons/Tomy.cs" />
+      <File FileName="Pokemon/Characters/Pokemons/Tomy.cs" Line="31" Column="1" />
       <File FileName="Pokemon/Characters/Pokemons/Rattata.cs" />
       <File FileName="Pokemon/Characters/Pokemons/Starters/Bulbizarre.cs" />
       <File FileName="Pokemon/Characters/Pokemons/Starters/Carapuce.cs" />
@@ -22,14 +22,7 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Pokemon" expanded="True">
-            <Node name="Pokemon_Fight" expanded="True">
-              <Node name="Characters" expanded="True">
-                <Node name="Pokemons" expanded="True">
-                  <Node name="Starters" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="Game.cs" selected="True" />
-            </Node>
+            <Node name="Pokemon_Fight" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>

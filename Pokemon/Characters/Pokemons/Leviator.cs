@@ -15,6 +15,33 @@ namespace PokemonGame
             pkmn_attacks = getAttacks();
             Name = "Leviator";
             Type = "Eau";
+
+            switch (nb_Trainer)
+            {
+                case 2:
+                    Attack = 40;
+                    Defense = 40;
+                    Speed = 40;
+                    HP = 40;
+                    break;
+
+                case 3:
+                    Attack = 60;
+                    Defense = 60;
+                    Speed = 60;
+                    HP = 60;
+                    break;
+
+                case 4:
+                    Attack = 70;
+                    Defense = 70;
+                    Speed = 70;
+                    HP = 70;
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         public override Attack[] getAttacks()

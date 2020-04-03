@@ -14,7 +14,7 @@ namespace PokemonGame
             string result;
             int i_result;
             Game pokemonGame;
-            Pokemon starter;
+            Starter starter;
 
             Console.WriteLine("Bienvenue dans Pokemon Fight!");
             Console.WriteLine("Gagne les 5 combats pour terminer la ligue Pokemon et deviens maître Pokemon!");
