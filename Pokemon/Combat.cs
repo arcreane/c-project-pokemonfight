@@ -15,9 +15,10 @@ namespace PokemonGame
         public bool start_Fight(string c_Name, Pokemon boss_pkmn, Pokemon starter, string s_difficulty)
         {
 
-            restart:
+        restart:
             //bool won;
             int choice_attack;
+            int choice_attack_boss;
             int cm_starter = 1;
             int cm_boss = 1;
             int hpLost;
@@ -125,15 +126,15 @@ namespace PokemonGame
                         break;
                     }
                     Random rnd = new Random();
-                    choice_attack = rnd.Next(1, 3);
-                    Console.WriteLine(boss_pkmn.Name + " utilise " + boss_pkmn.pkmn_attacks[choice_attack - 1].Name);
+                    choice_attack_boss = rnd.Next(1, 3);
+                    Console.WriteLine(boss_pkmn.Name + " utilise " + boss_pkmn.pkmn_attacks[choice_attack_boss - 1].Name);
                     //Définition du coefficient multiplicateur
-                    if (boss_pkmn.Type == boss_pkmn.pkmn_attacks[choice_attack - 1].Type)
+                    if (boss_pkmn.Type == boss_pkmn.pkmn_attacks[choice_attack_boss - 1].Type)
                     {
                         cm_boss = cm_boss * 2;
                     }
 
-                    switch (boss_pkmn.pkmn_attacks[choice_attack - 1].Type)
+                    switch (boss_pkmn.pkmn_attacks[choice_attack_boss - 1].Type)
                     {
                         case "Plante":
                             if (starter.Type == "Eau")
@@ -189,7 +190,7 @@ namespace PokemonGame
                         cm_boss = cm_boss * 2;
                         Console.WriteLine("Coup critique !");
                     }
-                    hpLost = cm_boss * ((8 * boss_pkmn.Attack * boss_pkmn.pkmn_attacks[choice_attack - 1].Damage) / (starter.Defense * 50) + 2);
+                    hpLost = cm_boss * ((8 * boss_pkmn.Attack * boss_pkmn.pkmn_attacks[choice_attack_boss - 1].Damage) / (starter.Defense * 50) + 2);
                     starter.HP -= hpLost;
                     Console.WriteLine(starter.Name + " a perdu " + hpLost + " HP");
                     Console.WriteLine("*******************************************************");
@@ -198,15 +199,15 @@ namespace PokemonGame
                 {
                     //Attaque du Pokémon adverse
                     Random rnd = new Random();
-                    choice_attack = rnd.Next(1, 3);
-                    Console.WriteLine(boss_pkmn.Name + " utilise " + boss_pkmn.pkmn_attacks[choice_attack - 1].Name);
+                    choice_attack_boss = rnd.Next(1, 3);
+                    Console.WriteLine(boss_pkmn.Name + " utilise " + boss_pkmn.pkmn_attacks[choice_attack_boss - 1].Name);
                     //Définition du coefficient multiplicateur
-                    if (boss_pkmn.Type == boss_pkmn.pkmn_attacks[choice_attack - 1].Type)
+                    if (boss_pkmn.Type == boss_pkmn.pkmn_attacks[choice_attack_boss - 1].Type)
                     {
                         cm_boss = cm_boss * 2;
                     }
 
-                    switch (boss_pkmn.pkmn_attacks[choice_attack - 1].Type)
+                    switch (boss_pkmn.pkmn_attacks[choice_attack_boss - 1].Type)
                     {
                         case "Plante":
                             if (starter.Type == "Eau")
@@ -262,7 +263,7 @@ namespace PokemonGame
                         cm_boss = cm_boss * 2;
                         Console.WriteLine("Coup critique !");
                     }
-                    hpLost = cm_boss * ((8 * boss_pkmn.Attack * boss_pkmn.pkmn_attacks[choice_attack - 1].Damage) / (starter.Defense * 50) + 2);
+                    hpLost = cm_boss * ((8 * boss_pkmn.Attack * boss_pkmn.pkmn_attacks[choice_attack_boss - 1].Damage) / (starter.Defense * 50) + 2);
                     starter.HP -= hpLost;
                     Console.WriteLine(starter.Name + " a perdu " + hpLost + " HP");
                     Console.WriteLine("*******************************************************");
@@ -354,7 +355,12 @@ namespace PokemonGame
                     string result = Console.ReadLine();
                     if (result == "oui")
                     {
+                        starter.HP = baseHP;
                         goto restart;
+                    }
+                    else if(result == "non")
+                    {
+                        endFight(false);
                     }
                 }
                 return false;

@@ -77,9 +77,19 @@ namespace PokemonGame
                     boss_pkmn = new Rattata();
                     game_state = fight1.start_Fight("boss", boss_pkmn, starter, Difficulty);
 
+                    if (!game_state)
+                    {
+                        break;
+                    }
+
                     fight2 = new Combat();
                     boss_pkmn = new Empiflor(2);
                     game_state = fight2.start_Fight("boss", boss_pkmn, starter, Difficulty);
+
+                    if (!game_state)
+                    {
+                        break;
+                    }
 
                     starter.evolve();
 
@@ -87,9 +97,19 @@ namespace PokemonGame
                     boss_pkmn = new Arcanin(3);
                     game_state = fight3.start_Fight("boss", boss_pkmn, starter, Difficulty);
 
+                    if (!game_state)
+                    {
+                        break;
+                    }
+
                     fight4 = new Combat();
                     boss_pkmn = new Leviator(4);
                     game_state = fight4.start_Fight("boss", boss_pkmn, starter, Difficulty);
+
+                    if (!game_state)
+                    {
+                        break;
+                    }
 
                     starter.evolve();
 
@@ -103,9 +123,19 @@ namespace PokemonGame
                     boss_pkmn = new Rattata();
                     game_state = fight1.start_Fight("boss", boss_pkmn, starter, Difficulty);
 
+                    if (!game_state)
+                    {
+                        break;
+                    }
+
                     fight2 = new Combat();
                     boss_pkmn = new Arcanin(2);
                     game_state = fight2.start_Fight("boss", boss_pkmn, starter, Difficulty);
+
+                    if (!game_state)
+                    {
+                        break;
+                    }
 
                     starter.evolve();
 
@@ -113,9 +143,19 @@ namespace PokemonGame
                     boss_pkmn = new Leviator(3);
                     game_state = fight3.start_Fight("boss", boss_pkmn, starter, Difficulty);
 
+                    if (!game_state)
+                    {
+                        break;
+                    }
+
                     fight4 = new Combat();
                     boss_pkmn = new Empiflor(4);
                     game_state = fight4.start_Fight("boss", boss_pkmn, starter, Difficulty);
+
+                    if (!game_state)
+                    {
+                        break;
+                    }
 
                     starter.evolve();
 
