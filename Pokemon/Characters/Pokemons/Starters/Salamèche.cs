@@ -7,12 +7,15 @@ namespace PokemonGame
 
         public Salamèche()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Attack = 40;
             Defense = 30;
             Speed = 30;
             HP = 30;
             pkmn_attacks = getAttacks();
-            Name = "Salamèche";
+            PP[0] = 50;
+            PP[1] = 10;
+            Name = "Salameche";
             Type = "Feu";
         }
 
@@ -50,7 +53,7 @@ namespace PokemonGame
             {
                 case 0:
                     Attack Charge = new Attack("Charge", 30, "Normal");
-                    Attack Flammèche = new Attack("Flammèche", 30, "Feu");
+                    Attack Flammèche = new Attack("Flammeche", 30, "Feu");
                     a_Attacks[0] = Charge;
                     a_Attacks[1] = Flammèche;
                     break;

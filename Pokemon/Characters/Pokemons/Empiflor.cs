@@ -47,18 +47,18 @@ namespace PokemonGame
         public override Attack[] getAttacks()
         {
             Attack[] a_Attacks = new Attack[2];
-            Attack Damoclès = new Attack("Damoclès", 30, "Normal");
+            Attack Damoclès = new Attack("Damocles", 30, "Normal");
             Attack Lance_soleil = new Attack("Lance-soleil", 30, "Plante");
 
             switch (nb_Fight)
             {
                 case 3:
-                    Damoclès = new Attack("Damoclès", 50, "Normal");
+                    Damoclès = new Attack("Damocles", 50, "Normal");
                     Lance_soleil = new Attack("Lance-soleil", 50, "Plante");
                     break;
 
                 case 4:
-                    Damoclès = new Attack("Damoclès", 70, "Normal");
+                    Damoclès = new Attack("Damocles", 70, "Normal");
                     Lance_soleil = new Attack("Lance-soleil", 70, "Plante");
                     break;
 

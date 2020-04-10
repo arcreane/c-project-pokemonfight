@@ -13,5 +13,9 @@ namespace PokemonGame
 
         public abstract void evolve();
 
+        public int[] PP { get; set; } = new int[2] ;
+
+        
+        
     }
 }

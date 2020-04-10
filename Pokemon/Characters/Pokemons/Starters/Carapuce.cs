@@ -7,11 +7,14 @@ namespace PokemonGame
 
         public Carapuce()
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Attack = 30;
             Defense = 35;
             Speed = 30;
             HP = 35;
             pkmn_attacks = getAttacks();
+            PP[0] = 50;
+            PP[1] = 10;
             Name = "Carapuce";
             Type = "Eau";
         }

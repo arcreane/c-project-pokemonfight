@@ -2,11 +2,14 @@
 namespace PokemonGame
 {
     public class Bulbizarre : Starter
+
     {
+
         protected int evolve_state = 0;
 
         public Bulbizarre()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Attack = 30;
             Defense = 30;
             Speed = 40;
@@ -14,6 +17,9 @@ namespace PokemonGame
             Type = "Plante";
             Name = "Bulbizarre";
             pkmn_attacks = getAttacks();
+          
+            PP[0] = 50;
+            PP[1] = 10;
         }
 
         public override void evolve()
@@ -54,6 +60,7 @@ namespace PokemonGame
                     a_Attacks[0] = Charge;
                     a_Attacks[1] = Vol_vie;
                     break;
+                    
 
                 case 1:
                     Attack Vive_Attaque = new Attack("Vive-attaque", 50, "Normal");
@@ -69,7 +76,7 @@ namespace PokemonGame
                     a_Attacks[0] = Force;
                     a_Attacks[1] = Danse_fleur;
                     break;
-
+                    
 
                 default:
                     break;

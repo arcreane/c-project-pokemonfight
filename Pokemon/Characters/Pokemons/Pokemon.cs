@@ -34,6 +34,10 @@ namespace PokemonGame
 
         public string Name { get; set; }
 
+
+        
+
+
         public Attack[] pkmn_attacks;
 
 
