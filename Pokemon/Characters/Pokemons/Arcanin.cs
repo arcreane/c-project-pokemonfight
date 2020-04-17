@@ -16,7 +16,7 @@ namespace PokemonGame
             Type = "Feu";
 
         }
-        public override void evolve(int nb_Trainer)
+        public override void updateBoss(int nb_Trainer)
         {
             nb_Fight = nb_Trainer;
             switch (nb_Trainer)

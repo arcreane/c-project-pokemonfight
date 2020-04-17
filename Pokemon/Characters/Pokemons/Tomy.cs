@@ -16,7 +16,7 @@ namespace PokemonGame
             Type = "Ultime";
         }
 
-        public override void evolve(int evolution)
+        public override void updateBoss(int evolution)
         {
         }
 

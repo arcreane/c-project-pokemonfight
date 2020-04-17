@@ -45,6 +45,6 @@ namespace PokemonGame
         public abstract Attack[] getAttacks();
 
 
-        public abstract void evolve(int evolution);
+        public abstract void updateBoss(int evolution);
     }
 }
