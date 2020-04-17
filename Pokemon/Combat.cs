@@ -86,7 +86,6 @@ namespace PokemonGame
                         if (starter.Type == starter.pkmn_attacks[choice_attack - 1].Type)
                         {
                             cm_starter = cm_starter * 1.5;
-                            Console.WriteLine(cm_starter);
                         }
                         switch (starter.pkmn_attacks[choice_attack - 1].Type)
                         {

@@ -80,19 +80,18 @@ namespace PokemonGame
             {
                 case 1:
 
-                    Console.WriteLine("* vous avez obtenu Bulbizarre *");
+                    
                     starter = new Bulbizarre();
                     break;
 
                 case 2:
 
-                    Console.WriteLine("* vous avez obtenu Salameche *");
+                    
                     starter = new Salamèche();
                     break;
 
                 case 3:
 
-                    Console.WriteLine("* vous avez obtenu Carapuce  *");
 
                     starter = new Carapuce();
                     break;

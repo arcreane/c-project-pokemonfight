@@ -9,6 +9,7 @@ namespace PokemonGame
         public Bulbizarre()
         {
             Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("* vous avez obtenu Bulbizarre *");
             Attack = 30;
             Defense = 30;
             Speed = 40;
@@ -51,35 +52,37 @@ namespace PokemonGame
         public override Attack[] getAttacks()
         {
             Attack[] a_Attacks = new Attack[2];
-         /*   switch (evolve_state)
+            string[] AttackName = new string[2];
+            string[] AttackType = new string[] { "Normal", "Plante" };
+            int attackValue;
+            switch (evolve_state)
             {
                 case 0:
-                    Attack Charge = new Attack("Charge", 30, "Normal");
-                    Attack Vol_vie = new Attack("Vol-vie", 30, "Plante");
-                    a_Attacks[0] = Charge;
-                    a_Attacks[1] = Vol_vie;
+                    attackValue = 30;
+                    AttackName[0] = "Charge";
+                    AttackName[1] = "Vol-vie";
                     break;
-                    
 
                 case 1:
-                    Attack Vive_Attaque = new Attack("Vive-attaque", 50, "Normal");
-                    Attack Tranch_herbe = new Attack("Tranch'herbe", 50, "Plante");
-                    a_Attacks[0] = Vive_Attaque;
-                    a_Attacks[1] = Tranch_herbe;
+                    attackValue = 50;
+                    AttackName[0] = "Vive-attaque";
+                    AttackName[1] = "Tranch'herbe";
                     break;
 
 
                 case 2:
-                    Attack Force = new Attack("Force", 70, "Normal");
-                    Attack Danse_fleur = new Attack("Danse-fleur", 70, "Plante");
-                    a_Attacks[0] = Force;
-                    a_Attacks[1] = Danse_fleur;
+                    attackValue = 70;
+                    AttackName[0] = "Force";
+                    AttackName[1] = "Danse-fleur";
                     break;
-                    
+
 
                 default:
+                    attackValue = 0;
                     break;
-            }*/
+            }
+            for(int i = 0; i< a_Attacks.Length; i++)
+                a_Attacks[i] = new Attack(AttackName[i], attackValue, AttackType[i]);
 
             return a_Attacks;
         }

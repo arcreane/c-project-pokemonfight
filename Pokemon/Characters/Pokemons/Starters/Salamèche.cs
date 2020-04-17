@@ -8,6 +8,7 @@ namespace PokemonGame
         public Salamèche()
         {
             Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("* vous avez obtenu Salamèche *");
             update("Salamèche", 40, 30, 30, 30);
             Type = "Feu";
             pkmn_attacks = getAttacks();

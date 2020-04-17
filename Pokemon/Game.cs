@@ -27,7 +27,7 @@ namespace PokemonGame
                                          new Boss("Titi",new Leviator()),
                                          new Boss("Tata",new Empiflor()),
                                          new Boss("Tutu",new Arcanin()),
-                                         new Boss("Tete",new Tomy()),
+                                         new Boss("Tomy",new Tomy()),
                                         };
 
             int[,] matrixBosses = new int[3, 5] { { 0, 1, 2, 3, 4 }, { 0, 2, 3, 1, 4 }, { 0, 3, 1, 2, 4 } };
