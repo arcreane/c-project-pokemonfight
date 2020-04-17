@@ -8,15 +8,11 @@ namespace PokemonGame
         public Carapuce()
         {
             Console.ForegroundColor = ConsoleColor.Blue;
-            Attack = 30;
-            Defense = 35;
-            Speed = 30;
-            HP = 35;
+            update("Carapuce", 30, 35, 30, 35);
+            Type = "Eau";
             pkmn_attacks = getAttacks();
             PP[0] = 50;
             PP[1] = 10;
-            Name = "Carapuce";
-            Type = "Eau";
         }
 
         public override void evolve(int evolve_state)
@@ -24,20 +20,12 @@ namespace PokemonGame
             switch (evolve_state)
             {
                 case 0:
-                    Name = "Carabaffe";
-                    Attack = 60;
-                    Defense = 65;
-                    Speed = 60;
-                    HP = 70;
+                    update("Carabaffe", 60, 65, 60, 70);
                     evolve_state++;
                     break;
 
                 case 1:
-                    Name = "Tortank";
-                    Attack = 90;
-                    Defense = 100;
-                    Speed = 90;
-                    HP = 100;
+                    update("Tortank", 90, 100, 90, 100);
                     evolve_state++;
                     break;
 
