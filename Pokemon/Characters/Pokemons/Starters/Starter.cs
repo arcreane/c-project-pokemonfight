@@ -13,9 +13,17 @@ namespace PokemonGame
 
         public abstract void evolve();
 
+        public void update(string name, int attack, int defense, int speed, int HP)
+        {
+            this.Name = name;
+            this.Attack = attack;
+            this.Defense = defense;
+            this.Speed = speed;
+            this.HP = HP;
+        }
+
         public int[] PP { get; set; } = new int[2] ;
 
-        
         
     }
 }

@@ -8,15 +8,11 @@ namespace PokemonGame
         public Salamèche()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Attack = 40;
-            Defense = 30;
-            Speed = 30;
-            HP = 30;
+            update("Salamèche", 40, 30, 30, 30);
+            Type = "Feu";
             pkmn_attacks = getAttacks();
             PP[0] = 50;
-            PP[1] = 10;
-            Name = "Salameche";
-            Type = "Feu";
+            PP[1] = 10;       
         }
 
         public override void evolve()
@@ -24,20 +20,12 @@ namespace PokemonGame
             switch (evolve_state)
             {
                 case 0:
-                    Name = "Reptincel";
-                    Attack = 75;
-                    Defense = 60;
-                    Speed = 60;
-                    HP = 60;
+                    update("Reptincel, 75, 60, 60, 60");
                     evolve_state++;
                     break;
 
                 case 1:
-                    Name = "Dracaufeu";
-                    Attack = 110;
-                    Defense = 90;
-                    Speed = 90;
-                    HP = 90;
+                    update("Dracaufeu", 110, 90, 90, 90);
                     evolve_state++;
                     break;
 

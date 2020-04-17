@@ -10,37 +10,25 @@ namespace PokemonGame
         public Bulbizarre()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Attack = 30;
-            Defense = 30;
-            Speed = 40;
-            HP = 30;
+            update("Bulbizarre", 30, 30, 40, 30);
             Type = "Plante";
-            Name = "Bulbizarre";
             pkmn_attacks = getAttacks();
           
             PP[0] = 50;
             PP[1] = 10;
         }
-
+        
         public override void evolve()
         {
             switch (evolve_state)
             {
                 case 0:
-                    Name = "Herbizarre";
-                    Attack = 60;
-                    Defense = 60;
-                    Speed = 75;
-                    HP = 60;
+                    update("Herbizarre", 60, 60, 75, 60);
                     evolve_state++;
                     break;
 
                 case 1:
-                    Name = "Florizarre";
-                    Attack = 90;
-                    Defense = 90;
-                    Speed = 110;
-                    HP = 90;
+                    update("Florizarre, 90, 90, 110, 90");
                     evolve_state++;
                     break;
 
@@ -52,6 +40,7 @@ namespace PokemonGame
         public override Attack[] getAttacks()
         {
             Attack[] a_Attacks = new Attack[2];
+
             switch (evolve_state)
             {
                 case 0:
