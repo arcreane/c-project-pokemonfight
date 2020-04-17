@@ -5,17 +5,20 @@ namespace PokemonGame
     {
         protected int nb_Fight;
 
-        public Arcanin(int nb_Trainer)
+        public Arcanin()
         {
             Attack = 70;
             Defense = 70;
             Speed = 70;
             HP = 70;
-            nb_Fight = nb_Trainer;
             pkmn_attacks = getAttacks();
             Name = "Arcanin";
             Type = "Feu";
 
+        }
+        public override void evolve(int nb_Trainer)
+        {
+            nb_Fight = nb_Trainer;
             switch (nb_Trainer)
             {
                 case 2:

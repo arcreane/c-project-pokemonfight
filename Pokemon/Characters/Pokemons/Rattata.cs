@@ -14,6 +14,10 @@ namespace PokemonGame
             Type = "Normal";
         }
 
+        public override void evolve(int evolution)
+        {
+        }
+
         public override Attack[] getAttacks()
         {
             Attack[] a_Attacks = new Attack[2];

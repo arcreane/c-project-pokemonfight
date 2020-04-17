@@ -18,8 +18,7 @@ namespace PokemonGame
             Name = "Salameche";
             Type = "Feu";
         }
-
-        public override void evolve()
+        public override void evolve(int evolve_state)
         {
             switch (evolve_state)
             {
@@ -49,34 +48,38 @@ namespace PokemonGame
         public override Attack[] getAttacks()
         {
             Attack[] a_Attacks = new Attack[2];
+            string[] AttackName = new string[2];
+            string[] AttackType = new string[] { "Normal", "Feu" };
+            int attackValue;
             switch (evolve_state)
             {
                 case 0:
-                    Attack Charge = new Attack("Charge", 30, "Normal");
-                    Attack Flammèche = new Attack("Flammeche", 30, "Feu");
-                    a_Attacks[0] = Charge;
-                    a_Attacks[1] = Flammèche;
+                    attackValue = 30;
+                     AttackName[0] = "Charge";
+                    AttackName[1] = "Flammèche";
                     break;
 
                 case 1:
-                    Attack Combo_griffe = new Attack("Combo-griffe", 50, "Normal");
-                    Attack Poing_de_feu = new Attack("Poing de feu", 50, "Feu");
-                    a_Attacks[0] = Combo_griffe;
-                    a_Attacks[1] = Poing_de_feu;
+                    attackValue = 50;
+                    AttackName[0] = "Combo-griffe";
+                    AttackName[1] = "Poing de feu";
                     break;
 
 
                 case 2:
-                    Attack Tranche = new Attack("Tranche", 70, "Normal");
-                    Attack Lance_flamme = new Attack("Lance-flamme", 70, "Feu");
-                    a_Attacks[0] = Tranche;
-                    a_Attacks[1] = Lance_flamme;
+                    attackValue = 70;
+                    AttackName[0] = "Tranche";
+                    AttackName[1] = "Lance-flamme";
                     break;
 
 
                 default:
+                    attackValue = 0;
                     break;
             }
+            for(int i = 0; i< a_Attacks.Length; i++)
+                a_Attacks[i] = new Attack(AttackName[i], attackValue, AttackType[i]);
+            
 
             return a_Attacks;
         }

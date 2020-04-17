@@ -26,14 +26,22 @@ namespace PokemonGame
 
                 nameChoice();
 
-                pokemonChoice();
+                int resultUser = pokemonChoice();
 
+                startPlay(resultUser);
+                
                 keepGoing = rebootGame();
 
             } while (keepGoing);
 
 
         }
+
+        private static void startPlay(int resultUser)
+        {
+            pokemonGame.generateFights(resultUser, starter);
+        }
+
         private static void difficultyChoice()
         {
             Console.WriteLine("Bienvenue dans Pokemon Fight!");
@@ -58,7 +66,7 @@ namespace PokemonGame
             Console.WriteLine("Bienvenue " + player.Name + " dans le monde magique des Pokemon! Mon nom est Chen! Les gens souvent m'appellent le Prof Pokemon! Ce monde est peuple de creatures du nom de Pokemon! L'etude des Pokemon est ma profession. Ta quête pour devenir maître Pokemon est sur le point de commencer! Un tout nouveau monde de rêves, d'aventures et de Pokemon t'attend! Dingue!");
 
         }
-        private static void pokemonChoice()
+        private static int pokemonChoice()
         {
             Console.WriteLine("A present, choisis parmi ces 3 Pokemons! Prends-en bien soin.");
             Console.WriteLine("Veux-tu le Pokemon type Plante: Bulbizarre? Tape 1");
@@ -73,17 +81,13 @@ namespace PokemonGame
                 case 1:
 
                     Console.WriteLine("* vous avez obtenu Bulbizarre *");
-
                     starter = new Bulbizarre();
-                    pokemonGame.generateFights(i_result, starter);
                     break;
 
                 case 2:
 
                     Console.WriteLine("* vous avez obtenu Salameche *");
-
                     starter = new Salamèche();
-                    pokemonGame.generateFights(i_result, starter);
                     break;
 
                 case 3:
@@ -91,7 +95,6 @@ namespace PokemonGame
                     Console.WriteLine("* vous avez obtenu Carapuce  *");
 
                     starter = new Carapuce();
-                    pokemonGame.generateFights(i_result, starter);
                     break;
 
                 case 4:
@@ -102,6 +105,8 @@ namespace PokemonGame
                 default:
                     break;
             }
+
+            return i_result;
         }
         private static bool rebootGame()
         {

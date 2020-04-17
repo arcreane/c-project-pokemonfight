@@ -9,10 +9,11 @@ namespace PokemonGame
     public class Boss : Character {
 
         public string name;
-
+        public Pokemon myPokePoke { get; set; }
+        
         public Boss(string name, Pokemon pokemon) : base(name)
         {
-            
+            myPokePoke = pokemon;
         }
 
         public void beginTalkFight() {

@@ -5,17 +5,20 @@ namespace PokemonGame
     {
         protected int nb_Fight;
 
-        public Leviator(int nb_Trainer)
+        public Leviator()
         {
             Attack = 60;
             Defense = 60;
             Speed = 60;
             HP = 60;
-            nb_Fight = nb_Trainer;
             pkmn_attacks = getAttacks();
             Name = "Leviator";
             Type = "Eau";
+         }
 
+        public override void evolve(int nb_Trainer)
+        {
+            nb_Fight = nb_Trainer;
             switch (nb_Trainer)
             {
                 case 2:

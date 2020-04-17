@@ -5,8 +5,7 @@ namespace PokemonGame
 
     {
 
-        protected int evolve_state = 0;
-
+      
         public Bulbizarre()
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -22,7 +21,7 @@ namespace PokemonGame
             PP[1] = 10;
         }
 
-        public override void evolve()
+        public override void evolve(int evolve_state)
         {
             switch (evolve_state)
             {
@@ -52,7 +51,7 @@ namespace PokemonGame
         public override Attack[] getAttacks()
         {
             Attack[] a_Attacks = new Attack[2];
-            switch (evolve_state)
+         /*   switch (evolve_state)
             {
                 case 0:
                     Attack Charge = new Attack("Charge", 30, "Normal");
@@ -80,7 +79,7 @@ namespace PokemonGame
 
                 default:
                     break;
-            }
+            }*/
 
             return a_Attacks;
         }

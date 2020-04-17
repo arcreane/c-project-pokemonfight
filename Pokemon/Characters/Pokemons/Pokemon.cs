@@ -44,5 +44,7 @@ namespace PokemonGame
 
         public abstract Attack[] getAttacks();
 
+
+        public abstract void evolve(int evolution);
     }
 }

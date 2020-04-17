@@ -19,7 +19,7 @@ namespace PokemonGame
             Type = "Eau";
         }
 
-        public override void evolve()
+        public override void evolve(int evolve_state)
         {
             switch (evolve_state)
             {

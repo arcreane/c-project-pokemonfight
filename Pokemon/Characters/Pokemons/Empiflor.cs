@@ -5,17 +5,19 @@ namespace PokemonGame
     {
         protected int nb_Fight;
 
-        public Empiflor(int nb_Trainer)
+        public Empiflor()
         {
             Attack = 40;
             Defense = 40;
             Speed = 40;
             HP = 40;
-            nb_Fight = nb_Trainer;
             pkmn_attacks = getAttacks();
             Name = "Empiflor";
             Type = "Plante";
-
+        }
+        public override void evolve(int nb_Trainer)
+        {
+            nb_Fight = nb_Trainer;
             switch (nb_Trainer)
             {
                 case 2:
