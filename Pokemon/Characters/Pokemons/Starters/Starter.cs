@@ -12,6 +12,8 @@ namespace PokemonGame
      
         public int[] PP { get; set; } = new int[2] ;
 
+        public int s_evolve_state { get; set; } = new int();
+
         public abstract void evolve();
         public void update(string name, int attack, int defense, int speed, int HP)
         {

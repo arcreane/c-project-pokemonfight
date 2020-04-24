@@ -15,12 +15,12 @@ namespace PokemonGame
             PP[0] = 50;
             PP[1] = 10;       
         }
-        public override void evolve(int evolve_state)
+        public override void evolve()
         {
-            switch (evolve_state)
+            switch (s_evolve_state)
             {
                 case 0:
-                    update("Reptincel, 75, 60, 60, 60");
+                    update("Reptincel", 75, 60, 60, 60);
                     evolve_state++;
                     break;
 
@@ -40,7 +40,7 @@ namespace PokemonGame
             string[] AttackName = new string[2];
             string[] AttackType = new string[] { "Normal", "Feu" };
             int attackValue;
-            switch (evolve_state)
+            switch (s_evolve_state)
             {
                 case 0:
                     attackValue = 30;
@@ -71,6 +71,11 @@ namespace PokemonGame
             
 
             return a_Attacks;
+        }
+
+        public override void updateBoss(int evolution)
+        {
+            throw new NotImplementedException();
         }
     }
 }

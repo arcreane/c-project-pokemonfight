@@ -5,43 +5,30 @@ namespace PokemonGame
 
     {
 
-      
         public Bulbizarre()
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("* vous avez obtenu Bulbizarre *");
-            Attack = 30;
-            Defense = 30;
-            Speed = 40;
-            HP = 30;
+            update("Bulbizarre", 30, 30, 40, 30);
             Type = "Plante";
-            Name = "Bulbizarre";
             pkmn_attacks = getAttacks();
-          
             PP[0] = 50;
             PP[1] = 10;
         }
 
-        public override void evolve(int evolve_state)
+
+        public override void evolve()
         {
-            switch (evolve_state)
+            switch (s_evolve_state)
             {
                 case 0:
-                    Name = "Herbizarre";
-                    Attack = 60;
-                    Defense = 60;
-                    Speed = 75;
-                    HP = 60;
-                    evolve_state++;
+                    update("Herbizzare", 60, 60, 75, 60);
+                    s_evolve_state++;
                     break;
 
                 case 1:
-                    Name = "Florizarre";
-                    Attack = 90;
-                    Defense = 90;
-                    Speed = 110;
-                    HP = 90;
-                    evolve_state++;
+                    update("Florizzare", 90, 90, 110, 90);
+                    s_evolve_state++;
                     break;
 
                 default:
@@ -49,13 +36,14 @@ namespace PokemonGame
             }
         }
 
+
         public override Attack[] getAttacks()
         {
             Attack[] a_Attacks = new Attack[2];
             string[] AttackName = new string[2];
             string[] AttackType = new string[] { "Normal", "Plante" };
             int attackValue;
-            switch (evolve_state)
+            switch (s_evolve_state)
             {
                 case 0:
                     attackValue = 30;
@@ -85,6 +73,11 @@ namespace PokemonGame
                 a_Attacks[i] = new Attack(AttackName[i], attackValue, AttackType[i]);
 
             return a_Attacks;
+        }
+
+        public override void updateBoss(int evolution)
+        {
+            throw new NotImplementedException();
         }
     }
 }
