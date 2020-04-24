@@ -37,13 +37,13 @@ namespace PokemonGame
                 fight[i] = new Combat();
                 int bossIndex = matrixBosses[starter_choice - 1, i];
                 boss_pkmn = bosses[bossIndex].myPokePoke;
-                boss_pkmn.evolve(i);
+                boss_pkmn.updateBoss(i);
                 game_state = fight[i].start_Fight("boss", boss_pkmn, starter, Difficulty, nbPotions);
                 if (!game_state)
                     return;
 
                 if (i == 2 || i == 4)
-                    starter.evolve(i);
+                    starter.updateBoss(i);
             }
         }
     }
