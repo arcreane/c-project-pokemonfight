@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +17,70 @@ namespace PokemonGame
         int atck_chance;
         Pokemon boss_pkmn;
         Starter starter;
+        bool game_state = true;
+        int baseHP;
+        int nbPotions;
 
 
-        public Combat() {
+        public Combat(string c_Name, Pokemon p_boss_pkmn, Starter p_starter, string s_difficulty, int i_nbPotions)
+        {
 
+            baseHP = starter.HP;
+
+            nbPotions = i_nbPotions;
+
+            Console.Clear();
+
+            introduceFight(c_Name);
+
+
+            do
+            {
+                Round();
+
+            } while (game_state);
+           
+        }
+
+        private void Round()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Potion()
+        {
+            if (nbPotions > 0 && starter.HP < baseHP)
+            {
+                starter.HP += 20;
+                starter.HP = starter.HP > baseHP ? baseHP : starter.HP;
+                nbPotions--;
+                Console.WriteLine("Vous avez recupere 20hp et il vous reste " + nbPotions + " potions");
+                counterAttack();
+            }
+            else
+            {
+                Console.WriteLine("Vous ne pouvez pas utiliser de potion");
+            }
+        }
+
+        public void Color(Pokemon pkmn = null, Attack atck = null)
+        {
+            if (pkmn.Type == "Feu" || atck.Type == "Feu")
+            { 
+                Console.ForegroundColor = ConsoleColor.Red;
+            }
+            else if (pkmn.Type == "Eau" || atck.Type == "Eau")
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+            }
+            else if(pkmn.Type == "Plante" || atck.Type == "Plante")
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+            }
+            else if (pkmn.Type == "Ultime" || atck.Type == "Ultime")
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+            }
         }
 
         public bool start_Fight(string c_Name, Pokemon p_boss_pkmn, Starter p_starter, string s_difficulty, int nbPotions)
