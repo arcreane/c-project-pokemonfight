@@ -23,10 +23,10 @@ namespace PokemonGame
             bool game_state = true;
             Pokemon boss_pkmn;
             Combat[] fight = new Combat[5];
-            Boss[] bosses = new Boss[] { new Boss("Toto",new Rattata()),
-                                         new Boss("Titi",new Leviator()),
-                                         new Boss("Tata",new Empiflor()),
-                                         new Boss("Tutu",new Arcanin()),
+            Boss[] bosses = new Boss[] { new Boss("Thomas",new Rattata()),
+                                         new Boss("Papou",new Leviator()),
+                                         new Boss("Robin",new Empiflor()),
+                                         new Boss("Batman",new Arcanin()),
                                          new Boss("Tomy",new Tomy()),
                                         };
 
@@ -34,16 +34,16 @@ namespace PokemonGame
 
             for (int i = 0; i < fight.Length; i++)
             {
-                fight[i] = new Combat();
                 int bossIndex = matrixBosses[starter_choice - 1, i];
                 boss_pkmn = bosses[bossIndex].myPokePoke;
                 boss_pkmn.updateBoss(i);
-                game_state = fight[i].start_Fight("boss", boss_pkmn, starter, Difficulty, nbPotions);
+                fight[i] = new Combat(bosses[bossIndex].Name, boss_pkmn, starter, Difficulty, nbPotions);
+                game_state = fight[i].keepGoing;
                 if (!game_state)
                     return;
 
                 if (i == 2 || i == 4)
-                    starter.updateBoss(i);
+                    starter.evolve();
             }
         }
     }

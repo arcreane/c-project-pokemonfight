@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace PokemonGame
@@ -17,34 +18,195 @@ namespace PokemonGame
         int atck_chance;
         Pokemon boss_pkmn;
         Starter starter;
-        bool game_state = true;
         int baseHP;
         int nbPotions;
+        string difficulty;
+        bool restartGame = false;
+        public bool keepGoing { get; set; }
+
 
 
         public Combat(string c_Name, Pokemon p_boss_pkmn, Starter p_starter, string s_difficulty, int i_nbPotions)
         {
-
+            starter = p_starter;
+            starter.pkmn_attacks = starter.getAttacks();
+            difficulty = s_difficulty;
+            boss_pkmn = p_boss_pkmn;
             baseHP = starter.HP;
-
             nbPotions = i_nbPotions;
-
+            restart:
             Console.Clear();
-
             introduceFight(c_Name);
-
 
             do
             {
                 Round();
+            } while (boss_pkmn.HP > 0 && starter.HP > 0);
 
-            } while (game_state);
-           
+            keepGoing = checkWinner();
+
+            if (restartGame)
+            {
+                goto restart;
+            }
+        }
+
+        private bool checkWinner()
+        {
+            if (starter.HP <= 0)
+            {
+                endFight(false);
+                if (difficulty == "tranquille")
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("Souhaitez-vous recommencer le combat? (oui/non)");
+                    string result = Console.ReadLine();
+                    if (result == "oui")
+                    {
+                        starter.HP = baseHP;
+                        restartGame = true;
+                    }
+                    else if (result == "non")
+                    {
+                        endFight(false);
+                        Console.WriteLine("");
+                        Console.WriteLine("*****Merci d'avoir joue, retour a l'accueil...*****");
+                    }
+                }
+                return false;
+            }
+            else
+            {
+                endFight(true);
+                starter.HP = baseHP;
+                return true;
+            }
         }
 
         private void Round()
         {
-            throw new NotImplementedException();
+            displayHp();
+            resultUserChoice();
+            executeChoice();
+            Console.ReadKey(true);
+            Console.Clear();
+        }
+
+        private void executeChoice()
+        {
+            if (resultUser == 1)
+            {
+                Potion();
+                counterAttack();
+            }
+            else if (resultUser == 2)
+            {
+                retrieveAttack();
+                if (starter.Speed > boss_pkmn.Speed || starter.Speed == boss_pkmn.Speed)
+                {
+                    Color(starter);
+                    useAttack();
+                    counterAttack();
+                }
+                else
+                {
+                    counterAttack();
+                    Color(starter);
+                    useAttack();
+                }
+            }
+        }
+
+        private void useAttack()
+        {
+            starter.PP[choice_attack - 1] -= 1;
+            cm_starter = 1;
+
+            if (starter.Type == starter.pkmn_attacks[choice_attack - 1].Type)
+            {
+                cm_starter = cm_starter * 1.5;
+            }
+            switch (starter.pkmn_attacks[choice_attack - 1].Type)
+            {
+                case "Plante":
+                    if (boss_pkmn.Type == "Eau")
+                    {
+                        cm_starter = cm_starter * 2;
+                    }
+                    else if (boss_pkmn.Type == "Feu")
+                    {
+                        cm_starter = cm_starter / 2;
+                    }
+                    break;
+
+                case "Eau":
+                    if (boss_pkmn.Type == "Feu")
+                    {
+                        cm_starter = cm_starter * 2;
+                    }
+                    else if (boss_pkmn.Type == "Plante")
+                    {
+                        cm_starter = cm_starter / 2;
+                    }
+                    break;
+
+                case "Feu":
+                    if (boss_pkmn.Type == "Plante")
+                    {
+                        cm_starter = cm_starter * 2;
+                    }
+                    else if (boss_pkmn.Type == "Eau")
+                    {
+                        cm_starter = cm_starter / 2;
+                    }
+                    break;
+
+                case "Ultime":
+                    cm_starter = cm_starter * 2;
+                    break;
+
+                default:
+                    break;
+            }
+            atck_chance = rnd_atck.Next(0, 100);
+
+            if (atck_chance <= 5)
+            {
+                //Échec critique
+                cm_starter = 0;
+                Console.WriteLine("Echec critique !");
+            }
+            else if (atck_chance >= 95)
+            {
+                //Coup critique
+                cm_starter = cm_starter * 2;
+                Console.WriteLine("Coup critique !");
+            }
+
+            hpLost = cm_starter * ((8 * starter.Attack * starter.pkmn_attacks[choice_attack - 1].Damage) / (boss_pkmn.Defense * 50) + 2);
+            boss_pkmn.HP -= Convert.ToInt16(hpLost);
+        }
+
+        private void retrieveAttack()
+        {
+            Console.WriteLine("Quelle attaque souhaitez-vous utiliser?");
+            Console.WriteLine("Tapez 1 pour utiliser : " + starter.pkmn_attacks[0].Name + "(" + starter.PP[0] + "/50)");
+            Console.WriteLine("Tapez 2 pour utiliser : " + starter.pkmn_attacks[1].Name + "(" + starter.PP[1] + "/10)");
+            Console.WriteLine("*******************************************************");
+            choice_attack = int.Parse(Console.ReadLine());
+        }
+
+        private void resultUserChoice()
+        {
+            Console.WriteLine("Que voulez-vous faire ? Tapez 1 pour utiliser une potion ou 2 pour utiliser une attaque");
+            resultUser = int.Parse(Console.ReadLine());
+        }
+
+        private void displayHp()
+        {
+            Console.WriteLine(starter.Name + " possede " + starter.HP + " HP");
+            Console.WriteLine(boss_pkmn.Name + " possede " + boss_pkmn.HP + " HP");
+            Console.WriteLine("*******************************************************");
         }
 
         public void Potion()
@@ -65,19 +227,24 @@ namespace PokemonGame
 
         public void Color(Pokemon pkmn = null, Attack atck = null)
         {
-            if (pkmn.Type == "Feu" || atck.Type == "Feu")
+            dynamic element;
+            if (pkmn == null)
+                element = atck;
+            else
+                element = pkmn;
+            if (element.Type == "Feu")
             { 
                 Console.ForegroundColor = ConsoleColor.Red;
             }
-            else if (pkmn.Type == "Eau" || atck.Type == "Eau")
+            else if (element.Type == "Eau")
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
             }
-            else if(pkmn.Type == "Plante" || atck.Type == "Plante")
+            else if(element.Type == "Plante")
             {
                 Console.ForegroundColor = ConsoleColor.Green;
             }
-            else if (pkmn.Type == "Ultime" || atck.Type == "Ultime")
+            else if (element.Type == "Ultime")
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
             }
@@ -282,6 +449,7 @@ namespace PokemonGame
             choice_attack_boss = rnd.Next(1, 3);
             Console.WriteLine(boss_pkmn.Name + " utilise " + boss_pkmn.pkmn_attacks[choice_attack_boss - 1].Name);
             //Définition du coefficient multiplicateur
+            cm_boss = 1;
             if (boss_pkmn.Type == boss_pkmn.pkmn_attacks[choice_attack_boss - 1].Type)
             {
                 cm_boss = cm_boss * 1.5;
