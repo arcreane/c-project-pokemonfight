@@ -7,13 +7,10 @@ namespace PokemonGame
 
         public Bulbizarre()
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("* vous avez obtenu Bulbizarre *");
+            color = ConsoleColor.Green;
             update("Bulbizarre", 30, 30, 40, 30);
-            Type = "Plante";
+            Type = pokeType.Plante;
             pkmn_attacks = getAttacks();
-            PP[0] = 50;
-            PP[1] = 10;
         }
 
 
@@ -41,7 +38,7 @@ namespace PokemonGame
         {
             Attack[] a_Attacks = new Attack[2];
             string[] AttackName = new string[2];
-            string[] AttackType = new string[] { "Normal", "Plante" };
+            pokeType[] AttackType = new pokeType[] { pokeType.Normal, pokeType.Plante };
             int attackValue;
             switch (s_evolve_state)
             {
@@ -77,7 +74,7 @@ namespace PokemonGame
 
         public override void updateBoss(int evolution)
         {
-            throw new NotImplementedException();
+            // Obligatoire car héritage de la classe Pokemon
         }
     }
 }

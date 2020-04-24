@@ -7,13 +7,10 @@ namespace PokemonGame
 
         public Leviator()
         {
-            Attack = 60;
-            Defense = 60;
-            Speed = 60;
-            HP = 60;
+            update("Leviator", 40, 40, 40, 40);
             pkmn_attacks = getAttacks();
             Name = "Leviator";
-            Type = "Eau";
+            Type = pokeType.Eau;
          }
 
         public override void updateBoss(int nb_Trainer)
@@ -22,24 +19,15 @@ namespace PokemonGame
             switch (nb_Trainer)
             {
                 case 2:
-                    Attack = 40;
-                    Defense = 40;
-                    Speed = 40;
-                    HP = 40;
+                    update("Leviator", 40, 40, 40, 40);
                     break;
 
                 case 3:
-                    Attack = 60;
-                    Defense = 60;
-                    Speed = 60;
-                    HP = 60;
+                    update("Leviator", 50, 50, 50, 50);
                     break;
 
                 case 4:
-                    Attack = 70;
-                    Defense = 70;
-                    Speed = 70;
-                    HP = 70;
+                    update("Leviator", 60, 60, 60, 60);
                     break;
 
                 default:
@@ -50,27 +38,33 @@ namespace PokemonGame
         public override Attack[] getAttacks()
         {
             Attack[] a_Attacks = new Attack[2];
-            Attack Damoclès = new Attack("Damocles", 30, "Normal");
-            Attack Hydro_canon = new Attack("Hydro-canon", 30, "Eau");
-
+            string[] AttackName = new string[2];
+            AttackName[0] = "Damocles";
+            AttackName[1] = "Hydro-Canon";
+            pokeType[] AttackType = new pokeType[] { pokeType.Normal, pokeType.Eau };
+            int attackValue;
             switch (nb_Fight)
             {
-                case 3:
-                    Damoclès = new Attack("Damocles", 50, "Normal");
-                    Hydro_canon = new Attack("Hydro-canon", 50, "Eau");
+                case 0:
+                    attackValue = 30;
                     break;
 
-                case 4:
-                    Damoclès = new Attack("Damocles", 70, "Normal");
-                    Hydro_canon = new Attack("Hydro-canon", 70, "Eau");
+                case 1:
+                    attackValue = 50;
                     break;
+
+
+                case 2:
+                    attackValue = 60;
+                    break;
+
 
                 default:
+                    attackValue = 0;
                     break;
             }
-
-            a_Attacks[0] = Damoclès;
-            a_Attacks[1] = Hydro_canon;
+            for (int i = 0; i < a_Attacks.Length; i++)
+                a_Attacks[i] = new Attack(AttackName[i], attackValue, AttackType[i]);
 
             return a_Attacks;
         }

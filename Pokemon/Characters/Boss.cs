@@ -15,14 +15,5 @@ namespace PokemonGame
         {
             myPokePoke = pokemon;
         }
-
-        public void beginTalkFight() {
-            // TODO implement here
-        }
-
-        public void endTalkFight() {
-            // TODO implement here
-        }
-
     }
 }

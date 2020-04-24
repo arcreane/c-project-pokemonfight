@@ -7,13 +7,10 @@ namespace PokemonGame
 
         public Empiflor()
         {
-            Attack = 40;
-            Defense = 40;
-            Speed = 40;
-            HP = 40;
+            update("Empiflor", 40, 40, 40, 40);
             pkmn_attacks = getAttacks();
             Name = "Empiflor";
-            Type = "Plante";
+            Type = pokeType.Plante;
         }
         public override void updateBoss(int nb_Trainer)
         {
@@ -21,24 +18,15 @@ namespace PokemonGame
             switch (nb_Trainer)
             {
                 case 2:
-                    Attack = 40;
-                    Defense = 40;
-                    Speed = 40;
-                    HP = 40;
+                    update("Empiflor", 40, 40, 40, 40);
                     break;
 
                 case 3:
-                    Attack = 60;
-                    Defense = 60;
-                    Speed = 60;
-                    HP = 60;
+                    update("Empiflor", 50, 50, 50, 50);
                     break;
 
                 case 4:
-                    Attack = 70;
-                    Defense = 70;
-                    Speed = 70;
-                    HP = 70;
+                    update("Empiflor", 60, 60, 60, 60);
                     break;
 
                 default:
@@ -49,27 +37,33 @@ namespace PokemonGame
         public override Attack[] getAttacks()
         {
             Attack[] a_Attacks = new Attack[2];
-            Attack Damoclès = new Attack("Damocles", 30, "Normal");
-            Attack Lance_soleil = new Attack("Lance-soleil", 30, "Plante");
-
+            string[] AttackName = new string[2];
+            AttackName[0] = "Damocles";
+            AttackName[1] = "Lance-Soleil";
+            pokeType[] AttackType = new pokeType[] { pokeType.Normal, pokeType.Plante };
+            int attackValue;
             switch (nb_Fight)
             {
-                case 3:
-                    Damoclès = new Attack("Damocles", 50, "Normal");
-                    Lance_soleil = new Attack("Lance-soleil", 50, "Plante");
+                case 0:
+                    attackValue = 30;
                     break;
 
-                case 4:
-                    Damoclès = new Attack("Damocles", 70, "Normal");
-                    Lance_soleil = new Attack("Lance-soleil", 70, "Plante");
+                case 1:
+                    attackValue = 50;
                     break;
+
+
+                case 2:
+                    attackValue = 60;
+                    break;
+
 
                 default:
+                    attackValue = 0;
                     break;
             }
-
-            a_Attacks[0] = Damoclès;
-            a_Attacks[1] = Lance_soleil;
+            for (int i = 0; i < a_Attacks.Length; i++)
+                a_Attacks[i] = new Attack(AttackName[i], attackValue, AttackType[i]);
 
             return a_Attacks;
         }

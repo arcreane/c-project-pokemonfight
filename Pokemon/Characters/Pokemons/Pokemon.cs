@@ -28,14 +28,21 @@ namespace PokemonGame
 
        // protected string type;
 
-        public string Type { get; set; }
+        public pokeType Type { get; set; }
 
         //protected string name;
 
         public string Name { get; set; }
 
 
-        
+        public void update(string name, int attack, int defense, int speed, int HP)
+        {
+            this.Name = name;
+            this.Attack = attack;
+            this.Defense = defense;
+            this.Speed = speed;
+            this.HP = HP;
+        }
 
 
         public Attack[] pkmn_attacks;

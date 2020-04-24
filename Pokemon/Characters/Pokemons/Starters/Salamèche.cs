@@ -3,17 +3,13 @@ namespace PokemonGame
 {
     public class Salamèche : Starter
     {
-        protected int evolve_state = 0;
 
         public Salamèche()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("* vous avez obtenu Salamèche *");
+            color = ConsoleColor.Red;
             update("Salamèche", 40, 30, 30, 30);
-            Type = "Feu";
-            pkmn_attacks = getAttacks();
-            PP[0] = 50;
-            PP[1] = 10;       
+            Type = pokeType.Feu;
+            pkmn_attacks = getAttacks();     
         }
         public override void evolve()
         {
@@ -21,12 +17,12 @@ namespace PokemonGame
             {
                 case 0:
                     update("Reptincel", 75, 60, 60, 60);
-                    evolve_state++;
+                    s_evolve_state++;
                     break;
 
                 case 1:
                     update("Dracaufeu", 110, 90, 90, 90);
-                    evolve_state++;
+                    s_evolve_state++;
                     break;
 
                 default:
@@ -38,7 +34,7 @@ namespace PokemonGame
         {
             Attack[] a_Attacks = new Attack[2];
             string[] AttackName = new string[2];
-            string[] AttackType = new string[] { "Normal", "Feu" };
+            pokeType[] AttackType = new pokeType[] { pokeType.Normal, pokeType.Feu };
             int attackValue;
             switch (s_evolve_state)
             {
@@ -75,7 +71,7 @@ namespace PokemonGame
 
         public override void updateBoss(int evolution)
         {
-            throw new NotImplementedException();
+            // Obligatoire car héritage de la classe Pokemon
         }
     }
 }
